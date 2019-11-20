@@ -1,4 +1,4 @@
-# locurage
+# Swapi
 
 ## Project setup
 ```
