@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <b-row>
-      <b-col>
+      <b-col class="py-5">
         <slot />
       </b-col>
     </b-row>
