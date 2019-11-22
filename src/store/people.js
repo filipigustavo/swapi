@@ -11,7 +11,7 @@ const peopleModel = {
 
 const people = {
   namespaced: true,
-  state () {
+  state: () => {
     return Object.assign({}, peopleModel)
   },
   mutations: {
