@@ -10,10 +10,6 @@ export default {
     query: {
       type: String,
       required: true
-    },
-    size: {
-      type: String,
-      required: true
     }
   },
   data () {

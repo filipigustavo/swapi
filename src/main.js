@@ -11,7 +11,8 @@ import {
   LinkPlugin,
   // NavbarPlugin,
   SpinnerPlugin,
-  ImagePlugin
+  ImagePlugin,
+  ListGroupPlugin
 } from 'bootstrap-vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -50,6 +51,7 @@ Vue.use(LinkPlugin)
 // Vue.use(NavbarPlugin)
 Vue.use(SpinnerPlugin)
 Vue.use(ImagePlugin)
+Vue.use(ListGroupPlugin)
 
 Vue.component('Layout', Layout)
 

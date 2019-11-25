@@ -1,5 +1,5 @@
 <template>
-  <b-card >
+  <b-card bg-variant="light" class="shadow-sm">
     <b-card-title v-if="label" class="text-capitalize">{{ label|label }}</b-card-title>
     <template v-for="(v,k,i) in dat">
       <template v-if="!escapeFields.includes(k)">
@@ -7,7 +7,7 @@
       </template>
     </template>
     <div v-if="loading" class="d-block w-100 text-center">
-      <b-spinner />
+      <b-spinner type="grow" label="Loading..." variant="secondary" />
     </div>
   </b-card>
 </template>
@@ -32,7 +32,7 @@ export default {
   data () {
     return {
       dat: null,
-      escapeFields: ["created", "edited", "url", "residents", "films", "characters", "planets", "starships", "vehicles", "species", "people", "pilots"],
+      escapeFields: ["created", "edited", "url", "residents", "films", "characters", "planets", "starships", "vehicles", "species", "people", "pilots", "homeworld"],
       loading: false
     }
   },

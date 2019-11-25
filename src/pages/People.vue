@@ -3,7 +3,7 @@
     <b-card>
       <template v-if="listing">
         <div class="d-block w-100 text-center">
-          <b-spinner />
+          <b-spinner type="grow" label="Loading..." variant="secondary" />
         </div>
       </template>
 
@@ -20,7 +20,7 @@
 
         <template v-for="(v,k,i) in current">
           <template v-if="!escapeFields.includes(k) && v.length > 0">
-            <PeopleDetailSimple v-if="k === 'homeworld'" :key="i+k" :label="k" :url="v" />
+            <PeopleDetailSimple v-if="k === 'homeworld'" :key="i+k" :label="k" :url="v" class="mb-4" />
             <PeopleDetailMultiple v-else-if="['films', 'species', 'vehicles', 'starships'].includes(k)" :key="i+k" :label="k" :arr="v" />
             <PeopleDetailPiece v-else :key="i+k" :label="k" :text="v" />
           </template>

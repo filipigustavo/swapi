@@ -1,8 +1,8 @@
 <template>
   <div>
     <h2 class="text-capitalize d-block">{{ label|label }}</h2>
-    <div class="d-flex justify-content-between custom-size scrollbar-none mx-auto">
-      <PeopleDetailSimple v-for="(url, index) in arr" :key="index" :url="url" class="card-size" />
+    <div class="d-flex justify-content-between flex-wrap">
+      <PeopleDetailSimple v-for="(url, index) in arr" :key="index" :url="url" :class="[label]" class="card-size mb-4" />
     </div>
   </div>
 </template>
@@ -28,26 +28,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.custom-size {
-  max-width: 1700px;
-  width: auto;
-  display: -webkit-box!important;
-  display: flex!important;
-  flex-wrap: nowrap!important;
-  overflow: auto!important;
-}
 .card-size {
-  min-width: 500px;
-  max-width: 500px;
-  &:not(:first-child):not(:last-child) {
-    margin-left: 1rem;
-    margin-right: 1rem;
+  min-width: calc(50% - 15px);
+  max-width: calc(50% - 15px);
+  &:nth-child(even) {
+    margin-left: 15px;
   }
-  &:first-child {
-    margin-right: 1rem;
+  &:nth-child(odd) {
+    margin-right: 15px;
   }
-  &:last-child {
-    margin-left: 1rem;
+  @media(max-width: 767px) {
+    min-width: 100%;
+    max-width: 100%;
+    &:nth-child(even) {
+      margin-left: 0;
+    }
+    &:nth-child(odd) {
+      margin-right: 0;
+    }
   }
 }
 </style>

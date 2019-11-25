@@ -17,6 +17,14 @@ const filter = {
     save ({ commit }, payload) {
       commit('save', { key: payload[0], value: payload[1] })
     }
+  },
+  getters: {
+    gender (state) {
+      return state.gender
+    },
+    birth (state) {
+      return state.birth
+    }
   }
 }
 

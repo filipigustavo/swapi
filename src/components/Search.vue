@@ -1,22 +1,13 @@
 <template>
-  <b-card>
+  <b-card bg-variant="primary" class="shadow-sm">
     <b-form @submit.prevent="doSearch">
       <b-row>
-        <b-col>
+        <b-col cols="12" sm>
           <label class="sr-only">Name</label>
-          <b-input v-model="name" placeholder="All characters" />
+          <b-input v-model="name" size="lg" placeholder="All characters" />
         </b-col>
-        <b-col cols="auto">
-          <b-spinner v-if="listing" />
-          <b-button v-else type="submit">Search</b-button>
-        </b-col>
-        <b-col>
-          <label class="sr-only">Birth</label>
-          <b-input v-model="birth" placeholder="Birth Date" />
-        </b-col>
-        <b-col>
-          <label class="sr-only">Gender</label>
-          <b-form-select v-model="gender" :options="genders" />
+        <b-col cols="12" sm="auto">
+          <b-button :disabled="listing" variant="primary" size="lg" class="border-white w-100 mt-3 mt-sm-0" type="submit">Search</b-button>
         </b-col>
       </b-row>
     </b-form>
@@ -56,9 +47,6 @@ export default {
         this.save(['gender', v])
       }
     }
-  },
-  created () {
-    window.console.log('store',this.$store.state)
   },
   methods: {
     ...mapActions('filter', ['save']),

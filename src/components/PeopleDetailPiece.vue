@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <dl class="row">
-      <dt class="col-auto text-capitalize">{{ label|label }}</dt>
+  <div v-if="text !== 'n/a'">
+    <dl class="row my-0">
+      <dt :class="[label]" class="col-auto text-capitalize">{{ label|label }}</dt>
       <dd class="col">{{ text }}</dd>
     </dl>
   </div>
@@ -21,3 +21,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.opening_crawl, .title {
+  width: 100%;
+}
+</style>

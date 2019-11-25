@@ -1,17 +1,17 @@
 <template>
-  <b-card-body class="position-relative">
-    <b-card-title>
+  <b-list-group-item class="position-relative">
+    <b-card-title class="d-inline">
       {{ people.name }}
       <small>{{ people.gender }}</small>
     </b-card-title>
-    <b-card-sub-title>
+    <b-card-sub-title class="d-inline">
       appears in {{ people.films.length }} movies
     </b-card-sub-title>
 
-    <router-link :to="link" v-slot="{ href, route, navigate, isActive, isExactActive }">
-      <b-link :href="href" class="stretched-link" @click="setCurrent">{{ people.name }} details</b-link>
+    <router-link :to="link" v-slot="{ href, route, navigate, isActive, isExactActive }" class="d-inline ml-3">
+      <b-link :href="href" class="stretched-link" @click="setCurrent">see details</b-link>
     </router-link>
-  </b-card-body>
+  </b-list-group-item>
 </template>
 
 <script>

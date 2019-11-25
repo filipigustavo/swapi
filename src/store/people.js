@@ -65,11 +65,32 @@ const people = {
     }
   },
   getters: {
-    filtered (state) {
-      return state.results
+    filtered (state, getters, rootState, rootGetters) {
+      let results = state.results
+      const gender = rootGetters['filter/gender']
+      const birth = rootGetters['filter/birth']
+
+      if (birth.length > 0) {
+        results = results.filter(r => {
+          if (r.birth_year) {
+            return r.birth_year.toLowerCase() === birth.toLowerCase()
+          }
+
+          return true
+        })
+      }
+
+      if (gender) {
+        results = results.filter(r => r.gender === gender)
+      }
+
+      return results
     },
     next (state) {
       return state.next
+    },
+    totalLoaded (state) {
+      return state.results.length
     }
   }
 }
