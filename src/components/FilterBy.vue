@@ -1,16 +1,16 @@
 <template>
   <b-card bg-variant="secondary" class="shadow-sm mt-3">
     <b-row>
-      <b-col cols="12" md>
+      <b-col cols="12" sm>
         <label class="sr-only">Birth</label>
         <b-input v-model="birth" size="sm" placeholder="Birth Date" />
       </b-col>
-      <b-col cols="12" md>
+      <b-col cols="12" sm>
         <label class="sr-only">Gender</label>
-        <b-form-select v-model="gender" :options="genders" size="sm" />
+        <b-form-select v-model="gender" :options="genders" size="sm" class="mt-3 mt-sm-0" />
       </b-col>
-      <b-col cols="12" md="auto">
-        <b-button variant="secondary" size="sm" class="border-white" @click="reset">Reset</b-button>
+      <b-col cols="12" sm="auto">
+        <b-button variant="secondary" size="sm" class="border-white w-100 mt-3 mt-sm-0" @click="reset">Reset</b-button>
       </b-col>
     </b-row>
   </b-card>
