@@ -14,3 +14,8 @@ npm run serve
 ```
 npm run build
 ```
+
+### To make tests
+```
+npm run test:unit
+```

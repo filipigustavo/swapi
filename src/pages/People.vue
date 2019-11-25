@@ -34,6 +34,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import Layout from '@/components/Layout'
 import PeopleDetailSimple from '@/components/PeopleDetailSimple'
 import PeopleDetailMultiple from '@/components/PeopleDetailMultiple'
 import PeopleDetailPiece from '@/components/PeopleDetailPiece'
@@ -41,6 +42,7 @@ import PeopleGiphy from '@/components/PeopleGiphy'
 
 export default {
   components: {
+    Layout,
     PeopleDetailSimple,
     PeopleDetailMultiple,
     PeopleDetailPiece,

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders Home page 1`] = `
+<layout-stub>
+  <search-stub></search-stub>
+  <filterby-stub></filterby-stub>
+  <peoplelist-stub></peoplelist-stub>
+</layout-stub>
+`;

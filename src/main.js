@@ -20,7 +20,6 @@ import { ConcurrencyManager } from 'axios-concurrency'
 
 import './assets/main.scss'
 import App from './App.vue'
-import Layout from './components/Layout'
 import Home from './pages/Home'
 import People from './pages/People'
 import store from './store'
@@ -52,8 +51,6 @@ Vue.use(LinkPlugin)
 Vue.use(SpinnerPlugin)
 Vue.use(ImagePlugin)
 Vue.use(ListGroupPlugin)
-
-Vue.component('Layout', Layout)
 
 ConcurrencyManager(axios, 2)
 Vue.use(VueAxios, axios)
