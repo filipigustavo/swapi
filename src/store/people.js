@@ -36,7 +36,7 @@ const people = {
         dispatch('save', ['listing', true])
 
         if (!getters.next) {
-          people = await axios.get('people/', { params })
+          people = await axios.get('https://swapi.co/api/people/', { params })
         } else {
           people = await axios.get(getters.next)
         }
@@ -54,7 +54,7 @@ const people = {
     async loadCurrent ({ dispatch }, id) {
       dispatch('save', ['listing', true])
       try {
-        const { data } = await axios.get(`people/${id}/`)
+        const { data } = await axios.get(`https://swapi.co/api/people/${id}/`)
 
         dispatch('save', ['current', data])
         dispatch('save', ['listing', false])
@@ -69,10 +69,6 @@ const people = {
       return state.results
     },
     next (state) {
-      if (state.next) {
-        return state.next.replace('https://swapi.co/api/', '')
-      }
-
       return state.next
     }
   }

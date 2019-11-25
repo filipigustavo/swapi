@@ -10,7 +10,8 @@ import {
   LayoutPlugin,
   LinkPlugin,
   // NavbarPlugin,
-  SpinnerPlugin
+  SpinnerPlugin,
+  ImagePlugin
 } from 'bootstrap-vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -48,11 +49,11 @@ Vue.use(LayoutPlugin)
 Vue.use(LinkPlugin)
 // Vue.use(NavbarPlugin)
 Vue.use(SpinnerPlugin)
+Vue.use(ImagePlugin)
 
 Vue.component('Layout', Layout)
 
 ConcurrencyManager(axios, 2)
-axios.defaults.baseURL = 'https://swapi.co/api/'
 Vue.use(VueAxios, axios)
 
 Vue.filter('label', labelFilter)

@@ -1,23 +1,24 @@
 <template>
-  <div>
-    <h2 v-if="label" class="text-capitalize">{{ label|label }}</h2>
+  <b-card >
+    <b-card-title v-if="label" class="text-capitalize">{{ label|label }}</b-card-title>
     <template v-for="(v,k,i) in dat">
       <template v-if="!escapeFields.includes(k)">
-        <dl :key="i+k" class="row">
-          <dt class="col-auto text-capitalize">{{ k|label }}</dt>
-          <dd class="col">{{ v }}</dd>
-        </dl>
+        <PeopleDetailPiece :key="i+k" :label="k" :text="v" />
       </template>
     </template>
     <div v-if="loading" class="d-block w-100 text-center">
       <b-spinner />
     </div>
-    <hr>
-  </div>
+  </b-card>
 </template>
 
 <script>
+import PeopleDetailPiece from '@/components/PeopleDetailPiece'
+
 export default {
+  components: {
+    PeopleDetailPiece
+  },
   props: {
     label: {
       type: String,
@@ -42,8 +43,7 @@ export default {
     async load () {
       try {
         this.loading = true
-        const url = this.url.replace('https://swapi.co/api/', '')
-        const { data } = await this.$http.get(url)
+        const { data } = await this.$http.get(this.url)
         this.dat = data
         this.loading = false
       } catch (e) {

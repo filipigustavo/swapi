@@ -8,8 +8,13 @@
       </template>
 
       <template v-else>
-        <b-card-title>{{ current.name }} <small>{{ current.gender }}</small></b-card-title>
-        <b-card-sub-title>appears in {{ current.films.length }} movies</b-card-sub-title>
+        <div class="d-flex">
+          <PeopleGiphy :query="current.name" />
+          <div class="ml-4">
+            <b-card-title>{{ current.name }} <small>{{ current.gender }}</small></b-card-title>
+            <b-card-sub-title>appears in {{ current.films.length }} movies</b-card-sub-title>
+          </div>
+        </div>
 
         <hr>
 
@@ -17,10 +22,7 @@
           <template v-if="!escapeFields.includes(k) && v.length > 0">
             <PeopleDetailSimple v-if="k === 'homeworld'" :key="i+k" :label="k" :url="v" />
             <PeopleDetailMultiple v-else-if="['films', 'species', 'vehicles', 'starships'].includes(k)" :key="i+k" :label="k" :arr="v" />
-            <dl v-else :key="i+k" class="row">
-              <dt class="col-auto text-capitalize">{{ k|label }}</dt>
-              <dd class="col">{{ v }}</dd>
-            </dl>
+            <PeopleDetailPiece v-else :key="i+k" :label="k" :text="v" />
           </template>
         </template>
 
@@ -34,11 +36,15 @@
 import { mapState, mapActions } from 'vuex'
 import PeopleDetailSimple from '@/components/PeopleDetailSimple'
 import PeopleDetailMultiple from '@/components/PeopleDetailMultiple'
+import PeopleDetailPiece from '@/components/PeopleDetailPiece'
+import PeopleGiphy from '@/components/PeopleGiphy'
 
 export default {
   components: {
     PeopleDetailSimple,
-    PeopleDetailMultiple
+    PeopleDetailMultiple,
+    PeopleDetailPiece,
+    PeopleGiphy
   },
   data() {
     return {
